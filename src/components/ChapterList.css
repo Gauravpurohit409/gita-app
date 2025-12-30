@@ -4,10 +4,50 @@
   padding: 20px;
 }
 
+.chapter-list.dark {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.header-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.icon-btn {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 10px;
+  padding: 8px 15px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.font-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.font-controls .icon-btn {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
 .app-header {
   text-align: center;
   color: white;
-  padding: 20px 0 30px;
+  padding: 10px 0 30px;
 }
 
 .app-header h1 {
@@ -39,6 +79,11 @@
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.chapter-list.dark .chapter-card {
+  background: #16213e;
+  color: #fff;
+}
+
 .chapter-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
@@ -57,10 +102,18 @@
   color: #333;
 }
 
+.chapter-list.dark .chapter-name {
+  color: #fff;
+}
+
 .chapter-name-en {
   font-size: 0.9rem;
   color: #666;
   margin: 0 0 8px;
+}
+
+.chapter-list.dark .chapter-name-en {
+  color: #aaa;
 }
 
 .verse-count {

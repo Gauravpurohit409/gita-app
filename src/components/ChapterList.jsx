@@ -2,10 +2,17 @@ import { Link } from 'react-router-dom';
 import gitaData from '../data/gita.json';
 import './ChapterList.css';
 
-function ChapterList() {
+function ChapterList({ darkMode, setDarkMode, fontSize, setFontSize }) {
   return (
-    <div className="chapter-list">
+    <div className={`chapter-list ${darkMode ? 'dark' : ''}`}>
       <header className="app-header">
+        <div className="header-controls">
+          <button className="icon-btn" onClick={() => setDarkMode(!darkMode)} title="Toggle Dark Mode">
+            {darkMode ? '☀️' : '🌙'}
+          </button>
+          <Link to="/search" className="icon-btn" title="Search">🔍</Link>
+          <Link to="/bookmarks" className="icon-btn" title="Bookmarks">🔖</Link>
+        </div>
         <h1>श्रीमद्भगवद्गीता</h1>
         <p>Shrimad Bhagavad Gita</p>
       </header>

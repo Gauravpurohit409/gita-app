@@ -1,0 +1,25 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    
+    <!-- Om Symbol Circle Background -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M100,10 A90,90 0 1,1 99.99,10"/>
+    
+    <!-- Om Symbol -->
+    <path
+        android:fillColor="#764ba2"
+        android:pathData="M70,80 Q60,70 65,60 Q70,50 80,55 Q90,60 85,75 Q82,85 75,90 Q68,95 70,80
+                          M95,55 Q105,45 115,50 Q125,55 130,70 Q135,85 125,95 Q115,105 100,100
+                          M100,100 Q110,95 115,85 Q120,75 110,70 Q100,65 95,75 Q90,85 100,100
+                          M130,50 Q140,45 145,55 Q150,65 145,75
+                          M100,110 L100,120 Q95,130 100,135 Q105,130 100,120"/>
+    
+    <!-- Decorative dots -->
+    <path
+        android:fillColor="#764ba2"
+        android:pathData="M100,35 A3,3 0 1,1 99.99,35"/>
+</vector>

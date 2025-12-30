@@ -1,0 +1,138 @@
+.bookmarks-page {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.bookmarks-page.dark {
+  background: #1a1a2e;
+  color: #fff;
+}
+
+.bookmarks-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+.bookmarks-header .back-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.bookmarks-header h1 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.bookmarks-container {
+  padding: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.no-bookmarks {
+  text-align: center;
+  padding: 60px 20px;
+  color: #888;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.no-bookmarks p {
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+}
+
+.no-bookmarks small {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.bookmark-card {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.bookmarks-page.dark .bookmark-card {
+  background: #16213e;
+}
+
+.bookmark-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.bookmark-location {
+  font-size: 0.85rem;
+  color: #764ba2;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.bookmark-location:hover {
+  text-decoration: underline;
+}
+
+.remove-btn {
+  background: #ff4757;
+  border: none;
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-btn:hover {
+  background: #ff6b7a;
+}
+
+.bookmark-sanskrit {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #8B4513;
+  padding: 12px;
+  background: #FFF8DC;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  white-space: pre-line;
+}
+
+.bookmarks-page.dark .bookmark-sanskrit {
+  background: #2a2a4a;
+  color: #ffd700;
+}
+
+.bookmark-hindi {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+  padding: 12px;
+  background: #f0f7ff;
+  border-radius: 10px;
+}
+
+.bookmarks-page.dark .bookmark-hindi {
+  background: #1a1a2e;
+  color: #ccc;
+}
