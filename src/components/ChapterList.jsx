@@ -1,8 +1,30 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import gitaData from '../data/gita.json';
+import { getChapters } from '../services/gitaApi';
 import './ChapterList.css';
 
 function ChapterList({ darkMode, setDarkMode, fontSize, setFontSize }) {
+  const [chapters, setChapters] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchChapters() {
+      setLoading(true);
+      const data = await getChapters();
+      setChapters(data);
+      setLoading(false);
+    }
+    fetchChapters();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className={`chapter-list ${darkMode ? 'dark' : ''}`}>
+        <div className="loading">🙏 लोड हो रहा है...</div>
+      </div>
+    );
+  }
+
   return (
     <div className={`chapter-list ${darkMode ? 'dark' : ''}`}>
       <header className="app-header">
@@ -18,9 +40,9 @@ function ChapterList({ darkMode, setDarkMode, fontSize, setFontSize }) {
       </header>
       
       <div className="chapters-grid">
-        {gitaData.chapters.map((chapter) => (
-          <Link to={`/chapter/${chapter.id}`} key={chapter.id} className="chapter-card">
-            <div className="chapter-number">अध्याय {chapter.id}</div>
+        {chapters.map((chapter) => (
+          <Link to={`/chapter/${chapter.chapter_number}`} key={chapter.chapter_number} className="chapter-card">
+            <div className="chapter-number">अध्याय {chapter.chapter_number}</div>
             <h2 className="chapter-name">{chapter.name}</h2>
             <p className="chapter-name-en">{chapter.name_transliterated}</p>
             <p className="verse-count">{chapter.verses_count} श्लोक</p>
