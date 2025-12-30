@@ -5,6 +5,7 @@ import ChapterList from './components/ChapterList';
 import ChapterDetail from './components/ChapterDetail';
 import SearchPage from './components/SearchPage';
 import BookmarksPage from './components/BookmarksPage';
+import PrivacyPolicy from './components/PrivacyPolicy';
 import './App.css';
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
         <Route path="/chapter/:id" element={<ChapterDetail {...appProps} />} />
         <Route path="/search" element={<SearchPage {...appProps} />} />
         <Route path="/bookmarks" element={<BookmarksPage {...appProps} />} />
+        <Route path="/privacy" element={<PrivacyPolicy {...appProps} />} />
       </Routes>
     </BrowserRouter>
   );

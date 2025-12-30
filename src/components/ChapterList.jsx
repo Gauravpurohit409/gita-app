@@ -49,6 +49,10 @@ function ChapterList({ darkMode, setDarkMode, fontSize, setFontSize }) {
           </Link>
         ))}
       </div>
+
+      <footer className="app-footer">
+        <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+      </footer>
     </div>
   );
 }
