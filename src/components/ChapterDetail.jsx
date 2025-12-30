@@ -89,7 +89,7 @@ function ChapterDetail({ darkMode, fontSize, toggleBookmark, isBookmarked, langu
   return (
     <div className={`chapter-detail ${darkMode ? 'dark' : ''}`}>
       <header className="detail-header">
-        <button onClick={() => navigate('/')} className="back-btn">← वापस</button>
+        <button onClick={() => navigate('/')} className="back-btn">←</button>
         <h1>अध्याय {chapter.chapter_number}</h1>
         <h2>{chapter.name}</h2>
         <p>{chapter.name_transliterated}</p>
