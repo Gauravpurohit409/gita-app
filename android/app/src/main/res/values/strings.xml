@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Bhagavad Gita</string>
+    <string name="title_activity_main">Bhagavad Gita</string>
+    <string name="package_name">com.gita.reader</string>
+    <string name="custom_url_scheme">com.gita.reader</string>
+</resources>

@@ -1,0 +1,70 @@
+.chapter-list {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.app-header {
+  text-align: center;
+  color: white;
+  padding: 20px 0 30px;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.app-header p {
+  margin: 5px 0 0;
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+.chapters-grid {
+  display: grid;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.chapter-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.chapter-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.chapter-number {
+  font-size: 0.85rem;
+  color: #764ba2;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.chapter-name {
+  font-size: 1.3rem;
+  margin: 0 0 5px;
+  color: #333;
+}
+
+.chapter-name-en {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 8px;
+}
+
+.verse-count {
+  font-size: 0.8rem;
+  color: #999;
+  margin: 0;
+}
