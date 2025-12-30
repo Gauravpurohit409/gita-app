@@ -4,7 +4,18 @@ import { Share } from '@capacitor/share';
 import { getChapter, getVerse } from '../services/gitaApi';
 import './ChapterDetail.css';
 
-function ChapterDetail({ darkMode, fontSize, toggleBookmark, isBookmarked }) {
+// Helper function to get translation based on language
+function getTranslation(verse, language) {
+  if (language === 'en') {
+    // English translations - try multiple sources
+    return verse.prabhu?.et || verse.siva?.et || verse.purohit?.et || verse.gambir?.et || 'Translation not available';
+  } else {
+    // Hindi translations (default)
+    return verse.tej?.ht || verse.rams?.ht || verse.hindi || 'हिंदी अनुवाद उपलब्ध नहीं';
+  }
+}
+
+function ChapterDetail({ darkMode, fontSize, toggleBookmark, isBookmarked, language }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const [chapter, setChapter] = useState(null);
@@ -57,19 +68,19 @@ function ChapterDetail({ darkMode, fontSize, toggleBookmark, isBookmarked }) {
 
   const handleShare = async (verse) => {
     const sanskrit = verse.slok || verse.sanskrit || '';
-    const hindi = verse.tej?.ht || verse.hindi || '';
+    const translation = getTranslation(verse, language);
     
     try {
       await Share.share({
-        title: `भगवद्गीता - अध्याय ${id}, श्लोक ${verse.verse}`,
-        text: `${sanskrit}\n\n${hindi}\n\n- श्रीमद्भगवद्गीता`,
-        dialogTitle: 'श्लोक साझा करें'
+        title: `Bhagavad Gita - Chapter ${id}, Verse ${verse.verse}`,
+        text: `${sanskrit}\n\n${translation}\n\n- Shrimad Bhagavad Gita`,
+        dialogTitle: 'Share Verse'
       });
     } catch (err) {
       if (navigator.share) {
         navigator.share({
-          title: `भगवद्गीता - अध्याय ${id}, श्लोक ${verse.verse}`,
-          text: `${sanskrit}\n\n${hindi}\n\n- श्रीमद्भगवद्गीता`
+          title: `Bhagavad Gita - Chapter ${id}, Verse ${verse.verse}`,
+          text: `${sanskrit}\n\n${translation}\n\n- Shrimad Bhagavad Gita`
         });
       }
     }
@@ -116,8 +127,11 @@ function ChapterDetail({ darkMode, fontSize, toggleBookmark, isBookmarked }) {
             <div className="sanskrit-text" style={{ fontSize: `${fontSize}px` }}>
               {verse.slok || verse.sanskrit}
             </div>
-            <div className="hindi-text" style={{ fontSize: `${fontSize - 2}px` }}>
-              {verse.tej?.ht || verse.hindi || 'हिंदी अनुवाद उपलब्ध नहीं'}
+            <div className="translation-label">
+              {language === 'en' ? 'English Translation:' : 'हिंदी अर्थ:'}
+            </div>
+            <div className="translation-text" style={{ fontSize: `${fontSize - 2}px` }}>
+              {getTranslation(verse, language)}
             </div>
           </div>
         ))}

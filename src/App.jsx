@@ -6,9 +6,13 @@ import ChapterDetail from './components/ChapterDetail';
 import SearchPage from './components/SearchPage';
 import BookmarksPage from './components/BookmarksPage';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import LanguageSelector from './components/LanguageSelector';
 import './App.css';
 
 function App() {
+  const [language, setLanguage] = useState(() => {
+    return localStorage.getItem('preferredLanguage') || null;
+  });
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem('darkMode') === 'true';
   });
@@ -18,6 +22,10 @@ function App() {
   const [bookmarks, setBookmarks] = useState(() => {
     return JSON.parse(localStorage.getItem('bookmarks')) || [];
   });
+
+  const handleLanguageSelect = (lang) => {
+    setLanguage(lang);
+  };
 
   useEffect(() => {
     localStorage.setItem('darkMode', darkMode);
@@ -62,7 +70,12 @@ function App() {
     return bookmarks.includes(`${chapterId}-${verseId}`);
   };
 
-  const appProps = { darkMode, setDarkMode, fontSize, setFontSize, toggleBookmark, isBookmarked, bookmarks };
+  // Show language selector on first launch
+  if (!language) {
+    return <LanguageSelector onSelect={handleLanguageSelect} />;
+  }
+
+  const appProps = { darkMode, setDarkMode, fontSize, setFontSize, toggleBookmark, isBookmarked, bookmarks, language, setLanguage };
 
   return (
     <BrowserRouter>
